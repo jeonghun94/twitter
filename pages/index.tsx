@@ -2,7 +2,10 @@ export default function Home() {
   return (
     <div className="flex h-screen w-full items-center justify-center bg-blue-200">
       <div className="w-full max-w-sm rounded-[3.5rem] bg-white  pb-5 h-auto border-[.8rem] py-2 px-3 border-black flex flex-col">
-        <div className="w-2/5 h-8 flex justify-center  place-self-center mt-2 rounded-2xl bg-black"></div>
+        <div className="w-2/5 h-8 flex justify-around  place-self-center mt-2 rounded-2xl bg-black p-2 items-center ">
+          <div className="w-4 h-4 bg-slate-900 rounded-full"></div>
+          <div className="w-3 h-3 bg-gray-900 rounded-full"></div>
+        </div>
 
         <div className="px-2 py-4 w-full border-0 border-b-2 border-b-gray-300 flex items-center justify-start">
           <select className="">
