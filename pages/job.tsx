@@ -1,23 +1,30 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+interface IForm {
+  department: string;
+  why: string;
+  salary: string;
+  introduction: string;
+  dreams: string;
+  email: string;
+}
+
 export default function Job() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<IForm>();
 
-  const [data, setData] = useState();
-
-  const onVaild = (formData) => {
+  const [data, setData] = useState<IForm | any>();
+  const onVaild = (formData: IForm) => {
     setData(JSON.stringify(formData));
-    console.log(data);
   };
 
   return (
     <div className="flex h-screen w-full items-center justify-center bg-blue-200 ">
-      <div className="w-full max-w-lg rounded-2xl  h-auto p-3 px-10 border-2 border-b-8 border-r-8 border-black bg-red-50">
+      <div className="w-full max-w-md rounded-2xl  h-auto p-3 px-5 border-2 border-b-8 border-r-8 border-black bg-red-50">
         <form className="flex flex-col" onSubmit={handleSubmit(onVaild)}>
           <h1 className="text-center text-2xl font-semibold my-6">
             Job Application Form
@@ -37,7 +44,7 @@ export default function Job() {
                     required: "*required",
                   })}
                   type="radio"
-                  name="department"
+                  value="sale"
                   id="sale"
                 />
                 Sales
@@ -48,7 +55,7 @@ export default function Job() {
                     required: "*required",
                   })}
                   type="radio"
-                  name="department"
+                  value="market"
                   id="market"
                 />
                 Markething
@@ -59,7 +66,7 @@ export default function Job() {
                     required: "*required",
                   })}
                   type="radio"
-                  name="department"
+                  value="account"
                   id="account"
                 />
                 Accounting
@@ -70,7 +77,7 @@ export default function Job() {
                     required: "*required",
                   })}
                   type="radio"
-                  name="department"
+                  value="customer"
                   id="customer"
                 />
                 Customer Service
@@ -90,7 +97,7 @@ export default function Job() {
                 <input
                   {...register("why", { required: "*required" })}
                   type="radio"
-                  name="company"
+                  value="money"
                   id="money"
                 />
                 I want money!
@@ -99,7 +106,7 @@ export default function Job() {
                 <input
                   {...register("why", { required: "*required" })}
                   type="radio"
-                  name="why"
+                  value="company"
                   id="company"
                 />
                 I love this compnay
@@ -108,7 +115,7 @@ export default function Job() {
                 <input
                   {...register("why", { required: "*required" })}
                   type="radio"
-                  name="why"
+                  value="learn"
                   id="learn"
                 />
                 I want to learn
@@ -117,7 +124,7 @@ export default function Job() {
                 <input
                   {...register("why", { required: "*required" })}
                   type="radio"
-                  name="why"
+                  value="dnw"
                   id="dnw"
                 />
                 I don't know why
